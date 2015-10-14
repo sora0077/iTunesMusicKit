@@ -7,7 +7,10 @@
 //
 
 import XCTest
+import APIKit
 @testable import iTunesMusicKit
+
+extension ListGenres: DebugRequestToken {}
 
 class iTunesMusicKitTests: XCTestCase {
     
@@ -24,6 +27,22 @@ class iTunesMusicKitTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        
+        let itunes = iTunesMusicAPI()
+        
+        let expect = self.expectationWithDescription("")
+        
+        itunes.request(ListGenres(country: "JP")).onSuccess { v in
+            
+            print(v)
+            
+            expect.fulfill()
+        }
+        
+        self.waitForExpectationsWithTimeout(40) { (error) -> Void in
+            
+        }
     }
     
     func testPerformanceExample() {
