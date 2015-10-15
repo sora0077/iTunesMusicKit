@@ -21,6 +21,7 @@
 		D93B8DAA1BCD7CC500D0FD73 /* ListGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93B8DA91BCD7CC500D0FD73 /* ListGenres.swift */; settings = {ASSET_TAGS = (); }; };
 		D93B8DAC1BCD7F6C00D0FD73 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93B8DAB1BCD7F6C00D0FD73 /* Genre.swift */; settings = {ASSET_TAGS = (); }; };
 		D93B8DAE1BCEA73700D0FD73 /* iTunesMusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93B8DAD1BCEA73700D0FD73 /* iTunesMusicKit.swift */; settings = {ASSET_TAGS = (); }; };
+		D97035B61BD0002C0031FF09 /* GetPreviewUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97035B51BD0002C0031FF09 /* GetPreviewUrl.swift */; settings = {ASSET_TAGS = (); }; };
 		D9FEBA951BCEA9F300688853 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93B8D9F1BCD7C9200D0FD73 /* Alamofire.framework */; settings = {ASSET_TAGS = (); }; };
 		D9FEBA961BCEA9F300688853 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93B8DA01BCD7C9200D0FD73 /* APIKit.framework */; settings = {ASSET_TAGS = (); }; };
 		D9FEBA971BCEA9F300688853 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93B8DA11BCD7C9200D0FD73 /* BrightFutures.framework */; settings = {ASSET_TAGS = (); }; };
@@ -78,6 +79,7 @@
 		D93B8DA91BCD7CC500D0FD73 /* ListGenres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListGenres.swift; sourceTree = "<group>"; };
 		D93B8DAB1BCD7F6C00D0FD73 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		D93B8DAD1BCEA73700D0FD73 /* iTunesMusicKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesMusicKit.swift; sourceTree = "<group>"; };
+		D97035B51BD0002C0031FF09 /* GetPreviewUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPreviewUrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				D93B8DA91BCD7CC500D0FD73 /* ListGenres.swift */,
+				D97035B51BD0002C0031FF09 /* GetPreviewUrl.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				D93B8DAE1BCEA73700D0FD73 /* iTunesMusicKit.swift in Sources */,
 				D93B8D9C1BCD69E300D0FD73 /* Artist.swift in Sources */,
+				D97035B61BD0002C0031FF09 /* GetPreviewUrl.swift in Sources */,
 				D93B8D981BCD69D100D0FD73 /* Track.swift in Sources */,
 				D93B8D9A1BCD69DA00D0FD73 /* Album.swift in Sources */,
 				D93B8DAA1BCD7CC500D0FD73 /* ListGenres.swift in Sources */,

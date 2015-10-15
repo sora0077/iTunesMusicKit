@@ -28,16 +28,24 @@ public struct Track {
         url: String,
         duration: Int
     )?
+    
     public var shortPreview: (
         url: String,
         duration: Int
     )?
+    
+    public var artwork: (
+        thumbnail: Album.Artwork,
+        large: Album.Artwork
+    )
     
     public var url: String
     
     public var price: String
     
     public var priceDisplay: String
+    
+    public var trackCount: Int
     
     public var trackNumber: Int
     

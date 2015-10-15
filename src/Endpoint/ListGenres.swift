@@ -12,7 +12,7 @@ import APIKit
 
 public struct ListGenres {
 
-    public var country: String
+    public let country: String
     
     var id: String
     
@@ -35,7 +35,7 @@ extension Dictionary {
     }
 }
 
-extension ListGenres: RequestToken {
+extension ListGenres: iTunesRequestToken {
     
     public typealias Response = Genres
     public typealias SerializedObject = [String: AnyObject]

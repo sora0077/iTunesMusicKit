@@ -34,6 +34,14 @@ public struct Album {
     
     public var trackCount: Int
     
+    public var price: String
+    
+    public var priceDisplay: String
+    
+    public var releaseDate: String
+    
+    public var copyright: String
+    
     public struct Artwork {
         
         public enum Size {

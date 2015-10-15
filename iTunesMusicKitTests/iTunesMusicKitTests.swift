@@ -11,6 +11,24 @@ import APIKit
 @testable import iTunesMusicKit
 
 extension ListGenres: DebugRequestToken {}
+extension GetPreviewUrl: DebugRequestToken {}
+
+extension XCTestCase {
+    
+    func async(callback: (() -> Void) -> Void) {
+        
+        let expect = self.expectationWithDescription("")
+        
+        callback {
+            expect.fulfill()
+        }
+        
+        self.waitForExpectationsWithTimeout(40) { (error) -> Void in
+            
+        }
+    }
+    
+}
 
 class iTunesMusicKitTests: XCTestCase {
     
@@ -31,17 +49,19 @@ class iTunesMusicKitTests: XCTestCase {
         
         let itunes = iTunesMusicAPI()
         
-        let expect = self.expectationWithDescription("")
-        
-        itunes.request(ListGenres(country: "JP")).onSuccess { v in
-            
-            print(v)
-            
-            expect.fulfill()
-        }
-        
-        self.waitForExpectationsWithTimeout(40) { (error) -> Void in
-            
+        async { done in
+            let url = "https://itunes.apple.com/jp/album/rising-hope/id862874145?i=862874227"
+            itunes.request(GetPreviewUrl(id: "862874227", url: url)).onSuccess { v in
+             
+                print(v)
+                done()
+            }
+//            itunes.request(ListGenres(country: "JP")).onSuccess { v in
+//                
+//                print(v)
+//                
+//                done()
+//            }
         }
     }
     

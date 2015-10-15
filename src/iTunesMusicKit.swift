@@ -30,3 +30,8 @@ public enum Error: APIKitErrorType {
 public func iTunesMusicAPI() -> API<Error> {
     return API<Error>()
 }
+
+
+protocol iTunesRequestToken: RequestToken {
+    
+}
