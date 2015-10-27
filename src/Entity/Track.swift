@@ -43,13 +43,13 @@ public struct Track {
     
     public var price: String
     
-    public var priceDisplay: String
+//    public var priceDisplay: String
     
-    public var trackCount: Int
+    public var trackCount: Int?
     
-    public var trackNumber: Int
+    public var trackNumber: Int?
     
     public var releaseDate: String
     
-    public var copyright: String
+//    public var copyright: String
 }

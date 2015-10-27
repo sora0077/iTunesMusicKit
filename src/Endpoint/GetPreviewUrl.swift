@@ -9,16 +9,28 @@
 import Foundation
 import APIKit
 
+public protocol GetPreviewUrlCapable {
+    
+    var id: String { get }
+    var url: String { get }
+}
+
+//extension Track: GetPreviewUrlCapable {}
+
 public struct GetPreviewUrl {
     
     public let id: String
     
     public let url: String
 
-    public init(id: String, url: String) {
+    init(id: String, url: String) {
         self.id = id
         self.url = url
     }
+    
+//    public init(track: GetPreviewUrlCapable) {
+//        self.init(id: track.id, url: track.url)
+//    }
 }
 
 extension GetPreviewUrl: iTunesRequestToken {

@@ -12,6 +12,8 @@ import APIKit
 
 extension ListGenres: DebugRequestToken {}
 extension GetPreviewUrl: DebugRequestToken {}
+extension GetTrackById: DebugRequestToken {}
+extension ListTopSongsByGenre: DebugRequestToken {}
 
 extension XCTestCase {
     
@@ -50,12 +52,24 @@ class iTunesMusicKitTests: XCTestCase {
         let itunes = iTunesMusicAPI()
         
         async { done in
-            let url = "https://itunes.apple.com/jp/album/rising-hope/id862874145?i=862874227"
-            itunes.request(GetPreviewUrl(id: "862874227", url: url)).onSuccess { v in
-             
+//            let url = "https://itunes.apple.com/jp/album/rising-hope/id862874145?i=862874227"
+//            itunes.request(GetPreviewUrl(id: "862874227", url: url)).onSuccess { v in
+//             
+//                print(v)
+//                done()
+//            }
+            
+            itunes.request(ListTopSongsByGenre(url: "https://itunes.apple.com/jp/rss/topsongs/genre=21/json")).onSuccess { v in
+                
                 print(v)
                 done()
             }
+            
+//            itunes.request(GetTrackById(id: "862874227", country: "JP")).onSuccess { v in
+//            
+//                print(v)
+//                done()
+//            }
 //            itunes.request(ListGenres(country: "JP")).onSuccess { v in
 //                
 //                print(v)

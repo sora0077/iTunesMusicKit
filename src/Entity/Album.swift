@@ -44,6 +44,8 @@ public struct Album {
     
     public struct Artwork {
         
+        private static let regex = try! NSRegularExpression(pattern: "\\d{2,3}x\\d{2,3}", options: [])
+        
         public enum Size {
             case Large
             case Thumbnail
@@ -78,9 +80,16 @@ public struct Album {
         public var url: String
         
         init(url: String, size: Size) {
-            self.url = url
-            self.width = size.width
-            self.height = size.height
+            
+            let width = size.width
+            let height = size.height
+            let result = NSMutableString(string: url)
+            
+            Artwork.regex.replaceMatchesInString(result, options: [], range: NSMakeRange(0, url.characters.count), withTemplate: "\(width)x\(height)")
+            
+            self.url = result as String
+            self.width = width
+            self.height = height
         }
     }
 }
