@@ -11,13 +11,18 @@ import APIKit
 
 public struct GetTrackById {
     
-    public let id: String
+    public var id: String {
+        return getTrackByIds.ids[0]
+    }
     
-    let country: String
+    var country: String {
+       return getTrackByIds.country
+    }
+    
+    private let getTrackByIds: GetTrackByIds
     
     public init(id: String, country: String) {
-        self.id = id
-        self.country = country
+        self.getTrackByIds = GetTrackByIds(ids: [id], country: country)
     }
 }
 
@@ -27,49 +32,23 @@ extension GetTrackById: iTunesRequestToken {
     public typealias SerializedObject = [String: AnyObject]
     
     public var method: HTTPMethod {
-        return .GET
+        return getTrackByIds.method
     }
     
     public var path: String {
-        return "https://itunes.apple.com/lookup"
+        return getTrackByIds.path
     }
     
     public var parameters: [String: AnyObject]? {
-        return [
-            "id": id,
-            "country": country
-        ]
+        return getTrackByIds.parameters
     }
     
     public func transform(request: NSURLRequest?, response: NSHTTPURLResponse?, object: SerializedObject) throws -> Response {
         
-        print(object)
-        
-        let dict = object["results"]![0] as! [String: AnyObject]
-        
-        return Track(
-            id: String(dict["trackId"] as! Int),
-            name: dict["trackName"] as! String,
-            censoredName: dict["censoredName"] as? String,
-            artistId: String(dict["artistId"] as! Int),
-            albumId: String(dict["collectionId"] as! Int),
-            album: nil,
-            artist: nil,
-            preview: nil,
-            shortPreview: (
-                url: dict["previewUrl"] as! String,
-                duration: 30
-            ),
-            artwork: (
-                thumbnail: Album.Artwork(url: dict["artworkUrl100"] as! String, size: .Thumbnail),
-                large: Album.Artwork(url: dict["artworkUrl100"] as! String, size: .Large)
-            ),
-            url: dict["trackViewUrl"] as! String,
-            price: String(dict["trackPrice"] as! Int),
-//            priceDisplay: dict[""] as! String,
-            trackCount: dict["trackCount"] as? Int,
-            trackNumber: dict["trackNumber"] as? Int,
-            releaseDate: dict["releaseDate"] as! String
-        )
+        let res = try getTrackByIds.transform(request, response: response, object: object)
+        if let item = res.first {
+            return item
+        }
+        throw Error.serializeError(NSError(domain: "", code: 0, userInfo: nil))
     }
 }

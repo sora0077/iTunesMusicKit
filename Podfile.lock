@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (3.1.2)
+  - APIKit (2.0.0):
+    - Alamofire
+    - BrightFutures
+  - BrightFutures (3.0.0):
+    - Result (= 0.6.0-beta.4)
+  - Result (0.6.0-beta.4)
+
+DEPENDENCIES:
+  - APIKit (from `https://github.com/sora0077/APIKit.git`, tag `2.0.0`)
+
+EXTERNAL SOURCES:
+  APIKit:
+    :git: https://github.com/sora0077/APIKit.git
+    :tag: 2.0.0
+
+CHECKOUT OPTIONS:
+  APIKit:
+    :git: https://github.com/sora0077/APIKit.git
+    :tag: 2.0.0
+
+SPEC CHECKSUMS:
+  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  APIKit: 5c7c941ffae5fd7f132b8e2eac11e6fcb34506a0
+  BrightFutures: 4a3f46747e5633562bdcef55c9e291bfb7288c34
+  Result: f7927152cbaec0c043abb06ba0bc432678818418
+
+COCOAPODS: 0.39.0

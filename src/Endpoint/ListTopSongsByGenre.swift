@@ -9,12 +9,6 @@
 import Foundation
 import APIKit
 
-public protocol ListTopSongsByGenreCapable {
-    var topSongs: String { get }
-}
-
-//extension Genres.Genre: ListTopSongsByGenreCapable {}
-
 public struct ListTopSongsByGenre {
     
     let url: String
@@ -22,10 +16,13 @@ public struct ListTopSongsByGenre {
     init(url: String) {
         self.url = url
     }
+}
+
+public extension ListTopSongsByGenre {
     
-//    public init(genre: ListTopSongsByGenreCapable) {
-//        self.init(url: genre.topSongs)
-//    }
+    init(genre: Genres.Genre) {
+        self.init(url: genre.topSongs)
+    }
 }
 
 private let regex = try! NSRegularExpression(pattern: "id(\\d+)", options: [])
@@ -45,9 +42,9 @@ extension ListTopSongsByGenre: iTunesRequestToken {
     
     public func transform(request: NSURLRequest?, response: NSHTTPURLResponse?, object: SerializedObject) throws -> Response {
         
-        print(object)
-        
         let entry = object["feed"]!["entry"] as! [[String: AnyObject]]
+        
+//        print(entry as NSArray)
         
         return entry.map { dict in
             Track(

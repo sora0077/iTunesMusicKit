@@ -11,20 +11,24 @@ import APIKit
 
 public enum Error: APIKitErrorType {
     
+    case APIError(ErrorType)
     case Unknown
     
     public static func networkError(error: ErrorType) -> Error {
-        return .Unknown
+        return .APIError(error)
     }
     
     public static func serializeError(error: ErrorType) -> Error {
-        return .Unknown
+        return .APIError(error)
     }
     
     public static func validationError(error: ErrorType) -> Error {
-        return .Unknown
+        return .APIError(error)
     }
     
+    public static func unsupportedError(error: ErrorType) -> Error {
+        return .APIError(error)
+    }
 }
 
 public func iTunesMusicAPI() -> API<Error> {

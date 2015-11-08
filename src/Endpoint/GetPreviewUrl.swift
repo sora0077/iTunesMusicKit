@@ -9,14 +9,6 @@
 import Foundation
 import APIKit
 
-public protocol GetPreviewUrlCapable {
-    
-    var id: String { get }
-    var url: String { get }
-}
-
-//extension Track: GetPreviewUrlCapable {}
-
 public struct GetPreviewUrl {
     
     public let id: String
@@ -27,10 +19,13 @@ public struct GetPreviewUrl {
         self.id = id
         self.url = url
     }
+}
+
+public extension GetPreviewUrl {
     
-//    public init(track: GetPreviewUrlCapable) {
-//        self.init(id: track.id, url: track.url)
-//    }
+    init(track: Track) {
+        self.init(id: track.id, url: track.url)
+    }
 }
 
 extension GetPreviewUrl: iTunesRequestToken {
@@ -59,9 +54,10 @@ extension GetPreviewUrl: iTunesRequestToken {
     
     public func transform(request: NSURLRequest?, response: NSHTTPURLResponse?, object: SerializedObject) throws -> Response {
         
-        print(object)
-        
         let items = object["items"] as! [[String: AnyObject]]
+        
+//        print(items as NSArray)
+        
         for item in items {
             let id = String(item["item-id"] as! Int)
             if self.id == id {
