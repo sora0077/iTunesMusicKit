@@ -8,6 +8,7 @@
 
 import Foundation
 import APIKit
+import Alamofire
 
 
 public struct ListGenres {

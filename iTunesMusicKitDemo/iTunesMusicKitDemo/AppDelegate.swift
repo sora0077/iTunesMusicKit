@@ -2,19 +2,13 @@
 //  AppDelegate.swift
 //  iTunesMusicKitDemo
 //
-//  Created by 林達也 on 2015/10/30.
+//  Created by 林達也 on 2015/11/10.
 //  Copyright © 2015年 jp.sora0077. All rights reserved.
 //
 
 import UIKit
 import iTunesMusicKit
-import APIKit
-
-extension ListGenres: DebugRequestToken {}
-extension GetPreviewUrl: DebugRequestToken {}
-extension GetTrackById: DebugRequestToken {}
-extension ListTopSongsByGenre: DebugRequestToken {}
-
+import RxSwift
 
 let itunes = iTunesMusicAPI()
 
@@ -26,22 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
-        itunes.request(ListGenres())
-            .flatMap { v in
-                itunes.request(ListTopSongsByGenre(genre: v.genre["29"]!))
-            }
-            .map { v -> ListTopSongsByGenre.Response in
-                print(v.count)
-                return v
-            }
-            .flatMap { v in
-                itunes.request(GetPreviewUrl(track: v[1]))
-            }
-            .map { v in
-                print(v)
-            }
         return true
     }
 

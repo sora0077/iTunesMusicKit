@@ -1,0 +1,37 @@
+PODS:
+  - Alamofire (3.1.2)
+  - APIKit (2.0.0):
+    - Alamofire
+    - BrightFutures
+  - BrightFutures (3.1.2):
+    - Result (= 0.6.0-beta.6)
+  - iTunesMusicKit (0.0.1):
+    - APIKit
+  - Result (0.6.0-beta.6)
+  - RxBlocking (2.0.0-beta.2):
+    - RxSwift (~> 2.0.0-beta)
+  - RxCocoa (2.0.0-beta.2):
+    - RxSwift (~> 2.0.0-beta)
+  - RxSwift (2.0.0-beta.2)
+
+DEPENDENCIES:
+  - iTunesMusicKit (from `../`)
+  - RxBlocking (~> 2.0.0-beta)
+  - RxCocoa (~> 2.0.0-beta)
+  - RxSwift (~> 2.0.0-beta)
+
+EXTERNAL SOURCES:
+  iTunesMusicKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  APIKit: cb68c140a8be51a274bb1bda94a8154ed9bd4033
+  BrightFutures: 6b4b299decee4c3775a9e7188d1ecec55262e09c
+  iTunesMusicKit: 274c99eb25c9d65d9ba4cdaaf38744010e139dbf
+  Result: dc390d0b58f9ec43fcd536f1ebdd130803cc6cbc
+  RxBlocking: ffb518856fb7712dcef7e18406ccb8c2854b3104
+  RxCocoa: ee39aa3ab24a8dde3832669f8e1e2c7652925e0c
+  RxSwift: 795720c22352cf1f62669ef3695b5df7e195103b
+
+COCOAPODS: 0.39.0

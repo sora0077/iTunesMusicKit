@@ -13,15 +13,28 @@ public struct ListTopSongsByGenre {
     
     let url: String
     
-    init(url: String) {
+    init(var url: String, limit: Int = 100) {
+        
+        if url.containsString("limit") {
+            let paths = url.componentsSeparatedByString("/")
+            url = paths.map({ p in
+                p.hasPrefix("limit") ? "limit=\(limit)" : p
+            }).joinWithSeparator("/")
+        } else {
+            var paths = url.componentsSeparatedByString("/")
+            paths.insert("limit=\(limit)", atIndex: paths.count - 1)
+            url = paths.joinWithSeparator("/")
+        }
+        
+        
         self.url = url
     }
 }
 
 public extension ListTopSongsByGenre {
     
-    init(genre: Genres.Genre) {
-        self.init(url: genre.topSongs)
+    init(genre: Genres.Genre, limit: Int = 100) {
+        self.init(url: genre.topSongs, limit: limit)
     }
 }
 
